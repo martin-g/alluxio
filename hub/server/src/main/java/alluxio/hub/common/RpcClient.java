@@ -81,7 +81,7 @@ public class RpcClient<T extends io.grpc.stub.AbstractBlockingStub<T>> implement
    * @param conf the configuration used to make the connection
    * @param connectAddress the address to connect to
    * @param channelFactory the factory method used create a new gRPC client around the channel
-   * @param policySupplier the a supplier of policies to use when attempting to create new channels
+   * @param policySupplier the supplier of policies to use when attempting to create new channels
    */
   public RpcClient(AlluxioConfiguration conf, InetSocketAddress connectAddress,
       Function<Channel, T> channelFactory, Supplier<RetryPolicy> policySupplier) {
