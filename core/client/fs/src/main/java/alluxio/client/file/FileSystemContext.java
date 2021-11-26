@@ -270,6 +270,7 @@ public class FileSystemContext implements Closeable {
       MetricsHeartbeatContext.addHeartbeat(getClientContext(), masterInquireClient);
     }
     mFileSystemMasterClientPool = new FileSystemMasterClientPool(mMasterClientContext);
+    new RuntimeException("---- Inited mFileSystemMasterClientPool: " + mFileSystemMasterClientPool).printStackTrace();
     mBlockMasterClientPool = new BlockMasterClientPool(mMasterClientContext);
     mBlockWorkerClientPoolMap = new ConcurrentHashMap<>();
     mUriValidationEnabled = ctx.getUriValidationEnabled();
@@ -502,6 +503,7 @@ public class FileSystemContext implements Closeable {
    */
   private <T> CloseableResource<T> acquireClosableClientResource(DynamicResourcePool<T> pool) {
     try {
+      System.err.println("------ POOL 1: " + pool);
       return new CloseableResource<T>(pool.acquire()) {
         @Override
         public void closeResource() {
