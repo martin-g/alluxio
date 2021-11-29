@@ -270,7 +270,7 @@ public class FileSystemContext implements Closeable {
       MetricsHeartbeatContext.addHeartbeat(getClientContext(), masterInquireClient);
     }
     mFileSystemMasterClientPool = new FileSystemMasterClientPool(mMasterClientContext);
-    LOG.error("---- DEBUG", new RuntimeException("---- Inited mFileSystemMasterClientPool: " + mFileSystemMasterClientPool));
+    LOG.error("---- INIT", new RuntimeException("---- Inited mFileSystemMasterClientPool: " + mFileSystemMasterClientPool));
     mBlockMasterClientPool = new BlockMasterClientPool(mMasterClientContext);
     mBlockWorkerClientPoolMap = new ConcurrentHashMap<>();
     mUriValidationEnabled = ctx.getUriValidationEnabled();

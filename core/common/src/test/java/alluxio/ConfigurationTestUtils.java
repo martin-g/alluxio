@@ -18,6 +18,8 @@ import alluxio.util.ConfigurationUtils;
 import alluxio.util.io.PathUtils;
 
 import com.google.common.base.Joiner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,6 +30,7 @@ import java.util.Map;
  * Utility methods for the configuration tests.
  */
 public final class ConfigurationTestUtils {
+  private static final Logger LOG = LoggerFactory.getLogger(ConfigurationTestUtils.class);
 
   /**
    * Return an instanced configuration with default value from the site properties file.
@@ -49,6 +52,7 @@ public final class ConfigurationTestUtils {
    */
   public static Map<PropertyKey, String> testConfigurationDefaults(AlluxioConfiguration alluxioConf,
       String hostname, String workDirectory) {
+    LOG.error("------------------testConfigurationDefaults------------------");
     Map<PropertyKey, String> conf = new HashMap<>();
     conf.put(PropertyKey.MASTER_HOSTNAME, hostname);
     conf.put(PropertyKey.WORKER_BIND_HOST, hostname);

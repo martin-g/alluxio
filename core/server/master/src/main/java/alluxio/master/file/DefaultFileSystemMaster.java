@@ -3916,7 +3916,7 @@ public final class DefaultFileSystemMaster extends CoreMaster
           tempUfsPath = PathUtils.concatUfsPath(mountPointUri,
               PathUtils.getPersistentTmpPath(resolution.getUri().toString()));
           LOG.debug("Generate tmp ufs path {} from ufs path {} for persistence.",
-              tempUfsPath, resolution.getUri().toString());
+              tempUfsPath, resolution.getUri());
         }
       }
 
@@ -4010,7 +4010,7 @@ public final class DefaultFileSystemMaster extends CoreMaster
               e.toString());
           LOG.debug("Exception: ", e);
         } catch (UnavailableException e) {
-          LOG.warn("Failed to persist file {}, will retry later: {}", uri, e.toString());
+          LOG.warn("Failed to persist file {}, will retry later: {}", uri, e, new RuntimeException());
           remove = false;
         } catch (ResourceExhaustedException e) {
           LOG.warn("The job service is busy, will retry later: {}", e.toString());
